@@ -1,51 +1,85 @@
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { ArrowUpRight, Sparkles } from 'lucide-react';
 import Instagram from './icons/Instagram';
 import { CREATOR, fadeUp, staggerContainer } from '../data/content';
 
+const ScrollRevealText = ({ text }) => {
+  const { scrollY } = useScroll();
+  const words = text.split(" ");
+  
+  return (
+    <p className="text-xl md:text-3xl font-extrabold max-w-4xl mx-auto mb-10 leading-snug flex flex-wrap justify-center gap-x-[0.35rem] gap-y-1 drop-shadow-sm">
+      {words.map((word, i) => {
+        // Multiplier to space out the animation of each word as user scrolls
+        const startScroll = i * 20; 
+        const endScroll = startScroll + 20;
+        const opacity = useTransform(scrollY, [startScroll, endScroll], [0.25, 1]);
+        const color = useTransform(scrollY, [startScroll, endScroll], ["#94a3b8", "#ffffff"]);
+        return (
+          <motion.span key={i} style={{ opacity, color }}>{word}</motion.span>
+        )
+      })}
+    </p>
+  );
+};
+
 const HeroSection = ({ scrollTo }) => (
   <section
     id="portada"
-    className="min-h-screen flex items-center justify-center relative px-6 overflow-hidden"
+    className="min-h-screen flex items-center justify-center relative px-6 overflow-hidden bg-slate-950"
     aria-labelledby="hero-heading"
   >
-    <div className="absolute top-[-10%] left-[-10%] w-96 h-96 bg-orange-400/20 rounded-full blur-3xl pointer-events-none" aria-hidden="true" />
-    <div className="absolute bottom-[-10%] right-[-10%] w-[500px] h-[500px] bg-pink-500/20 rounded-full blur-3xl pointer-events-none" aria-hidden="true" />
+    {/* Sizzle Reel Background */}
+    <video
+      src="/videos/secret_ad.mp4"
+      autoPlay
+      loop
+      muted
+      playsInline
+      className="absolute inset-0 w-full h-full object-cover opacity-60 select-none pointer-events-none z-0"
+    />
+    
+    {/* Dark Glass Overlay */}
+    <div className="absolute inset-0 bg-slate-950/70 backdrop-blur-[4px] z-0" aria-hidden="true" />
+    
+    {/* Gradients para contraste luminoso */}
+    <div className="absolute top-[-10%] left-[-10%] w-[600px] h-[600px] bg-orange-500/10 rounded-full blur-[100px] pointer-events-none z-0" aria-hidden="true" />
+    <div className="absolute bottom-[-10%] right-[-10%] w-[600px] h-[600px] bg-pink-600/15 rounded-full blur-[100px] pointer-events-none z-0" aria-hidden="true" />
 
     <motion.div
       initial="hidden"
       animate="visible"
       variants={staggerContainer}
-      className="text-center z-10 max-w-4xl mx-auto mt-20"
+      className="text-center z-10 max-w-4xl mx-auto mt-20 relative"
     >
-      <motion.div variants={fadeUp} className="inline-block mb-6 px-4 py-2 bg-white/60 backdrop-blur-sm border border-pink-200 rounded-full">
-        <span className="text-sm font-bold tracking-widest text-pink-500 uppercase flex items-center gap-2">
-          <Sparkles className="w-4 h-4" aria-hidden="true" /> {CREATOR.tagline}
+      <motion.div variants={fadeUp} className="inline-block mb-6 px-4 py-2 bg-white/5 backdrop-blur-xl border border-white/10 rounded-full">
+        <span className="text-xs md:text-sm font-bold tracking-widest text-pink-300 uppercase flex items-center gap-2 shadow-sm">
+          <Sparkles className="w-4 h-4 text-orange-400" aria-hidden="true" /> {CREATOR.tagline}
         </span>
       </motion.div>
 
-      <motion.h1 id="hero-heading" variants={fadeUp} className="text-6xl md:text-8xl lg:text-[9rem] font-extrabold leading-[0.9] tracking-tight mb-8">
-        <span className="text-slate-900 block">Hola, soy</span>
-        <span className="text-gradient block pb-2">Bárbara.</span>
+      <motion.h1 id="hero-heading" variants={fadeUp} className="text-6xl md:text-8xl lg:text-[9.5rem] font-extrabold leading-[0.9] tracking-tight mb-8 drop-shadow-2xl">
+        <span className="text-white block">Hola, soy</span>
+        <span className="text-gradient block pb-2 drop-shadow-2xl">Bárbara.</span>
         <span className="sr-only"> — Creadora UGC en Chile, especialista en Lifestyle y Beauty content</span>
       </motion.h1>
 
-      <motion.p variants={fadeUp} className="text-lg md:text-xl text-slate-600 font-light max-w-2xl mx-auto mb-6">
-        Fonos grandes, problemas chiquitos ✨. Creo contenido estético, real y que convierte para marcas que buscan destacar.
-      </motion.p>
+      <motion.div variants={fadeUp} className="z-20 relative">
+        <ScrollRevealText text="Fonos grandes, problemas chiquitos ✨. Creo contenido estético, real y que convierte para marcas que buscan destacar." />
+      </motion.div>
 
       <motion.div variants={fadeUp} className="flex flex-wrap justify-center gap-4 mb-10">
-        <div className="bg-white/80 backdrop-blur-sm border border-orange-100 rounded-full px-5 py-2 flex items-center gap-2 shadow-sm">
-          <span className="text-orange-500 font-extrabold">{CREATOR.stats.tiktokFollowers}</span>
-          <span className="text-slate-500 text-sm font-medium">TikTok</span>
+        <div className="bg-slate-900/50 backdrop-blur-xl border border-white/5 rounded-full px-5 py-2 flex items-center gap-2 shadow-xl text-white">
+          <span className="text-orange-400 font-extrabold">{CREATOR.stats.tiktokFollowers}</span>
+          <span className="text-slate-300 text-sm font-medium">TikTok</span>
         </div>
-        <div className="bg-white/80 backdrop-blur-sm border border-pink-100 rounded-full px-5 py-2 flex items-center gap-2 shadow-sm">
-          <span className="text-pink-500 font-extrabold">{CREATOR.stats.igFollowers}</span>
-          <span className="text-slate-500 text-sm font-medium">Instagram</span>
+        <div className="bg-slate-900/50 backdrop-blur-xl border border-white/5 rounded-full px-5 py-2 flex items-center gap-2 shadow-xl text-white">
+          <span className="text-pink-400 font-extrabold">{CREATOR.stats.igFollowers}</span>
+          <span className="text-slate-300 text-sm font-medium">Instagram</span>
         </div>
-        <div className="bg-white/80 backdrop-blur-sm border border-orange-100 rounded-full px-5 py-2 flex items-center gap-2 shadow-sm">
-          <span className="text-orange-500 font-extrabold">{CREATOR.stats.tiktokLikes}</span>
-          <span className="text-slate-500 text-sm font-medium">Likes TikTok</span>
+        <div className="bg-slate-900/50 backdrop-blur-xl border border-white/5 rounded-full px-5 py-2 flex items-center gap-2 shadow-xl text-white">
+          <span className="text-orange-400 font-extrabold">{CREATOR.stats.tiktokLikes}</span>
+          <span className="text-slate-300 text-sm font-medium">Likes TikTok</span>
         </div>
       </motion.div>
 
@@ -53,7 +87,7 @@ const HeroSection = ({ scrollTo }) => (
         <a
           href="#trabajo"
           onClick={(e) => { e.preventDefault(); scrollTo('trabajo'); }}
-          className="bg-gradient-brand text-white px-8 py-4 rounded-full font-bold text-lg hover:shadow-xl hover:shadow-pink-500/40 transition-all hover:-translate-y-1 flex items-center gap-2"
+          className="bg-gradient-brand text-white px-8 py-4 rounded-full font-bold text-lg shadow-xl shadow-pink-500/20 hover:shadow-pink-500/40 transition-all hover:-translate-y-1 flex items-center gap-2"
         >
           Ver mi trabajo <ArrowUpRight className="w-5 h-5" aria-hidden="true" />
         </a>
@@ -61,9 +95,9 @@ const HeroSection = ({ scrollTo }) => (
           href={CREATOR.linktree}
           target="_blank"
           rel="noopener noreferrer"
-          className="bg-white text-slate-800 border border-slate-200 px-8 py-4 rounded-full font-bold text-lg hover:border-pink-300 hover:text-pink-600 transition-all flex items-center gap-2 shadow-sm"
+          className="bg-white/5 text-white backdrop-blur-xl border border-white/10 px-8 py-4 rounded-full font-bold text-lg hover:bg-white/10 transition-all flex items-center gap-2 shadow-xl"
         >
-          <Instagram className="w-5 h-5" /> Mis Redes
+          <Instagram className="w-5 h-5 opacity-90" /> Mis Redes
         </a>
       </motion.div>
     </motion.div>
