@@ -10,8 +10,7 @@ export const CREATOR = {
   linktree: "https://linktr.ee/barbaraobreque",
   tiktokLink: "https://www.tiktok.com/@siendomuybarbara",
   igLink: "https://www.instagram.com/siendobarbara/",
-  // TODO: Reemplazar con el email real de contacto
-  email: "hola@barbara.com",
+  email: "baru2025@gmail.com",
   stats: {
     tiktokLikes: "2.2M",
     tiktokFollowers: "32.7K",
