@@ -4,6 +4,7 @@ import AboutSection from './components/AboutSection';
 import PortfolioSection from './components/PortfolioSection';
 import MetricsSection from './components/MetricsSection';
 import ServicesSection from './components/ServicesSection';
+import FaqSection from './components/FaqSection';
 import FooterSection from './components/FooterSection';
 
 export default function App() {
@@ -30,6 +31,7 @@ export default function App() {
         <PortfolioSection />
         <MetricsSection />
         <ServicesSection scrollTo={scrollTo} />
+        <FaqSection />
       </main>
 
       <FooterSection />

@@ -44,10 +44,10 @@ const ServicesSection = ({ scrollTo }) => (
         variants={staggerContainer}
       >
         <div className="text-center mb-16">
-          <h2 className="text-sm font-bold uppercase tracking-widest text-orange-500 mb-4">04. Inversión</h2>
-          <h3 id="services-heading" className="text-4xl md:text-5xl font-extrabold text-slate-900">
+          <p className="text-sm font-bold uppercase tracking-widest text-orange-500 mb-4">04. Inversión</p>
+          <h2 id="services-heading" className="text-4xl md:text-5xl font-extrabold text-slate-900">
             Paquetes <span className="text-gradient">UGC</span>
-          </h3>
+          </h2>
           <p className="text-slate-500 mt-4 text-lg max-w-lg mx-auto">
             Contenido que no parece publicidad, sino una recomendación de tu mejor amiga.
           </p>
@@ -70,7 +70,7 @@ const ServicesSection = ({ scrollTo }) => (
                     ⭐ Top Seller
                   </div>
                 )}
-                <h4 className="text-2xl font-bold text-slate-900 mb-2">{pkg.name}</h4>
+                <h3 className="text-2xl font-bold text-slate-900 mb-2">{pkg.name}</h3>
                 <p className="text-slate-500 mb-8 font-light">{pkg.description}</p>
                 <ul className="space-y-4 mb-10 flex-grow" aria-label={`Incluido en ${pkg.name}`}>
                   {pkg.items.map((item, i) => (
@@ -85,19 +85,21 @@ const ServicesSection = ({ scrollTo }) => (
                     {pkg.price} <span className="text-base font-normal text-slate-400">USD</span>
                   </span>
                   {pkg.featured ? (
-                    <button
-                      onClick={() => scrollTo('contacto')}
+                    <a
+                      href="#contacto"
+                      onClick={(e) => { e.preventDefault(); scrollTo('contacto'); }}
                       className="bg-pink-50 text-pink-600 px-6 py-2 rounded-full font-bold uppercase tracking-wider text-sm hover:bg-pink-100 transition-colors"
                     >
                       Solicitar
-                    </button>
+                    </a>
                   ) : (
-                    <button
-                      onClick={() => scrollTo('contacto')}
+                    <a
+                      href="#contacto"
+                      onClick={(e) => { e.preventDefault(); scrollTo('contacto'); }}
                       className="text-orange-500 font-bold uppercase tracking-wider text-sm hover:text-orange-600 flex items-center gap-1"
                     >
                       Lo quiero <ArrowUpRight className="w-4 h-4" aria-hidden="true" />
-                    </button>
+                    </a>
                   )}
                 </div>
                 <p className="text-xs text-slate-400 mt-4 text-center">* Precios referenciales, pueden variar según requerimiento.</p>

@@ -27,6 +27,7 @@ const HeroSection = ({ scrollTo }) => (
       <motion.h1 id="hero-heading" variants={fadeUp} className="text-6xl md:text-8xl lg:text-[9rem] font-extrabold leading-[0.9] tracking-tight mb-8">
         <span className="text-slate-900 block">Hola, soy</span>
         <span className="text-gradient block pb-2">Bárbara.</span>
+        <span className="sr-only"> — Creadora UGC en Chile, especialista en Lifestyle y Beauty content</span>
       </motion.h1>
 
       <motion.p variants={fadeUp} className="text-lg md:text-xl text-slate-600 font-light max-w-2xl mx-auto mb-6">
@@ -49,16 +50,17 @@ const HeroSection = ({ scrollTo }) => (
       </motion.div>
 
       <motion.div variants={fadeUp} className="flex flex-wrap gap-4 justify-center">
-        <button
-          onClick={() => scrollTo('trabajo')}
+        <a
+          href="#trabajo"
+          onClick={(e) => { e.preventDefault(); scrollTo('trabajo'); }}
           className="bg-gradient-brand text-white px-8 py-4 rounded-full font-bold text-lg hover:shadow-xl hover:shadow-pink-500/40 transition-all hover:-translate-y-1 flex items-center gap-2"
         >
           Ver mi trabajo <ArrowUpRight className="w-5 h-5" aria-hidden="true" />
-        </button>
+        </a>
         <a
           href={CREATOR.linktree}
           target="_blank"
-          rel="noreferrer"
+          rel="noopener noreferrer"
           className="bg-white text-slate-800 border border-slate-200 px-8 py-4 rounded-full font-bold text-lg hover:border-pink-300 hover:text-pink-600 transition-all flex items-center gap-2 shadow-sm"
         >
           <Instagram className="w-5 h-5" /> Mis Redes

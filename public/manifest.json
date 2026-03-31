@@ -1,0 +1,17 @@
+{
+  "name": "BARÜ — Creadora UGC · Lifestyle & Beauty",
+  "short_name": "BARÜ",
+  "description": "Portfolio de Bárbara Obreque, creadora UGC especializada en Lifestyle y Beauty.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FFF5F6",
+  "theme_color": "#FFF5F6",
+  "lang": "es",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

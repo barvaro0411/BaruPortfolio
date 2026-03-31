@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# Bloquear solo source maps, NO los assets JS/CSS que Googlebot necesita para renderizar
+Disallow: /*.map$
+
+Sitemap: https://www.baruugc.cl/sitemap.xml

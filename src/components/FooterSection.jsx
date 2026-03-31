@@ -52,7 +52,7 @@ const FooterSection = () => (
             <a
               href={CREATOR.tiktokLink}
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               className="text-slate-400 hover:text-orange-400 transition-colors flex items-center gap-2 font-medium"
               aria-label={`TikTok de ${CREATOR.alias}`}
             >
@@ -61,7 +61,7 @@ const FooterSection = () => (
             <a
               href={CREATOR.igLink}
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               className="text-slate-400 hover:text-pink-400 transition-colors flex items-center gap-2 font-medium"
               aria-label={`Instagram de ${CREATOR.alias}`}
             >

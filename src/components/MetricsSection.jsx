@@ -17,10 +17,10 @@ const MetricsSection = () => (
         variants={staggerContainer}
       >
         <div className="text-center mb-16">
-          <h2 className="text-sm font-bold uppercase tracking-widest text-orange-500 mb-4">03. Métricas & Alcance</h2>
-          <h3 id="metrics-heading" className="text-4xl md:text-5xl font-extrabold text-slate-900">
+          <p className="text-sm font-bold uppercase tracking-widest text-orange-500 mb-4">03. Métricas & Alcance</p>
+          <h2 id="metrics-heading" className="text-4xl md:text-5xl font-extrabold text-slate-900">
             Números que <span className="text-gradient">hablan solos.</span>
-          </h3>
+          </h2>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16 max-w-4xl mx-auto">
@@ -87,7 +87,7 @@ const MetricsSection = () => (
 
         {/* Top Videos */}
         <motion.div variants={fadeUp} className="max-w-4xl mx-auto">
-          <h4 className="text-xl font-extrabold text-slate-900 mb-6 text-center">🔥 Top Videos Virales</h4>
+          <h3 className="text-xl font-extrabold text-slate-900 mb-6 text-center">🔥 Top Videos Virales</h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {TOP_VIDEOS.map((v, i) => (
               <div key={i} className="bg-white rounded-2xl p-6 border border-slate-100 flex items-center gap-4 hover:border-pink-200 hover:shadow-md transition-all">

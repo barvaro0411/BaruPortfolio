@@ -9,30 +9,167 @@
     <meta name="description" content="Portfolio de Bárbara Obreque (BARÜ), creadora UGC especializada en Lifestyle y Beauty. +2.2M likes en TikTok, contenido auténtico para marcas." />
     <meta name="author" content="Bárbara Obreque" />
     <meta name="robots" content="index, follow" />
+    <meta name="keywords" content="UGC creator Chile, creadora contenido, lifestyle beauty, TikTok influencer, Bárbara Obreque, BARÜ, contenido para marcas, influencer Santiago" />
+    <meta name="theme-color" content="#FFF5F6" />
+    <link rel="canonical" href="https://www.baruugc.cl/" />
+    <!-- Google Search Console: reemplazar content con tu código de verificación -->
+    <!-- <meta name="google-site-verification" content="TU_CÓDIGO_AQUÍ" /> -->
 
     <!-- Open Graph -->
     <meta property="og:title" content="BARÜ — Creadora UGC · Lifestyle & Beauty" />
     <meta property="og:description" content="Contenido auténtico que convierte. +2.2M likes en TikTok, +32.7K seguidores. Ayudo a marcas a conectar con su audiencia." />
-    <meta property="og:image" content="/images/img1.jpeg" />
+    <meta property="og:image" content="https://www.baruugc.cl/images/img1.jpeg" />
+    <meta property="og:image:width" content="800" />
+    <meta property="og:image:height" content="1000" />
     <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.baruugc.cl/" />
     <meta property="og:locale" content="es_CL" />
+    <meta property="og:site_name" content="BARÜ UGC" />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="BARÜ — Creadora UGC" />
     <meta name="twitter:description" content="Portfolio de Bárbara Obreque. Contenido UGC, Lifestyle & Beauty." />
-    <meta name="twitter:image" content="/images/img1.jpeg" />
+    <meta name="twitter:image" content="https://www.baruugc.cl/images/img1.jpeg" />
+    <meta name="twitter:site" content="@siendomuybarbara" />
+    <meta name="twitter:creator" content="@siendobarbara" />
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="manifest" href="/manifest.json" />
 
-    <!-- Google Fonts: Preconnect + Load -->
+    <!-- Google Fonts: Preconnect + Non-blocking Load -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;800&display=swap" rel="stylesheet" />
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;800&display=swap" /></noscript>
   </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "name": "BARÜ — Creadora UGC",
+          "url": "https://www.baruugc.cl/",
+          "description": "Portfolio de Bárbara Obreque, creadora UGC especializada en Lifestyle y Beauty.",
+          "inLanguage": "es"
+        },
+        {
+          "@type": "Person",
+          "name": "Bárbara Obreque",
+          "alternateName": "BARÜ",
+          "url": "https://www.baruugc.cl/",
+          "image": "https://www.baruugc.cl/images/img1.jpeg",
+          "description": "Creadora de contenido UGC especializada en Lifestyle y Beauty en Santiago, Chile. +2.2M likes en TikTok, +32.7K seguidores.",
+          "jobTitle": "Creadora de Contenido UGC",
+          "knowsAbout": ["UGC", "Contenido para marcas", "Lifestyle", "Beauty", "TikTok", "Instagram", "Producción de video", "Marketing de influencers"],
+          "sameAs": [
+            "https://www.tiktok.com/@siendomuybarbara",
+            "https://www.instagram.com/siendobarbara/",
+            "https://linktr.ee/barbaraobreque"
+          ],
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "contactType": "customer service",
+            "email": "hola@barbara.com",
+            "availableLanguage": "Spanish"
+          }
+        },
+        {
+          "@type": "ProfessionalService",
+          "name": "BARÜ UGC Content Creation",
+          "provider": {
+            "@type": "Person",
+            "name": "Bárbara Obreque"
+          },
+          "description": "Creación de contenido UGC auténtico para marcas. Videos TikTok/Reels, fotos lifestyle, y estrategia visual en Santiago, Chile.",
+          "areaServed": [
+            { "@type": "Country", "name": "Chile" },
+            { "@type": "City", "name": "Santiago" }
+          ],
+          "serviceType": "UGC Content Creation",
+          "url": "https://www.baruugc.cl/#servicios",
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Paquetes UGC",
+            "itemListElement": [
+              {
+                "@type": "Offer",
+                "name": "Test & Learn",
+                "description": "2 Videos 9:16 TikTok/Reels, 2 hooks alternativos, derechos de uso 3 meses, entrega en 7 días hábiles.",
+                "price": "350",
+                "priceCurrency": "USD",
+                "priceValidUntil": "2026-12-31",
+                "availability": "https://schema.org/InStock"
+              },
+              {
+                "@type": "Offer",
+                "name": "Escalamiento Ads",
+                "description": "5 Videos UGC dinámicos, pruebas A/B, 5 fotos lifestyle, uso de imagen y voz, derechos extendidos.",
+                "price": "850",
+                "priceCurrency": "USD",
+                "priceValidUntil": "2026-12-31",
+                "availability": "https://schema.org/InStock"
+              }
+            ]
+          }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Inicio",
+              "item": "https://www.baruugc.cl/"
+            }
+          ]
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "¿Qué es el contenido UGC?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "El contenido UGC (User Generated Content) es material audiovisual creado por personas reales para marcas. Se diferencia de la publicidad tradicional porque luce orgánico y auténtico, como la recomendación de una amiga de confianza, lo que genera mayor engagement y conversión."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "¿Cuánto cuesta contratar una creadora UGC en Chile?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Los precios varían según el alcance del proyecto. BARÜ ofrece paquetes desde $350 USD (Test & Learn: 2 videos con hooks alternativos) hasta $850 USD (Escalamiento Ads: 5 videos + fotos lifestyle + pruebas A/B). Los precios son referenciales y pueden ajustarse según requerimientos específicos."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "¿Qué incluye una colaboración UGC con BARÜ?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Dependiendo del paquete, incluye videos en formato 9:16 optimizados para TikTok e Instagram Reels, hooks alternativos para pruebas A/B, fotos lifestyle con estética Clean Aesthetic, derechos de uso de imagen y voz, y entrega en un plazo definido."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "¿Cuánto tiempo toma recibir el contenido?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "El paquete Test & Learn tiene un plazo de entrega de 7 días hábiles. Para proyectos más grandes como Escalamiento Ads, el plazo se define según la complejidad y cantidad de contenido requerido."
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
   </body>
 </html>

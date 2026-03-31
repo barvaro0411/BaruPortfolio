@@ -16,10 +16,10 @@ const PortfolioSection = () => (
         variants={staggerContainer}
         className="text-center mb-20"
       >
-        <h2 className="text-sm font-bold uppercase tracking-widest text-pink-500 mb-4">02. Mi Portafolio</h2>
-        <h3 id="portfolio-heading" className="text-4xl md:text-6xl font-extrabold text-slate-900">
+        <p className="text-sm font-bold uppercase tracking-widest text-pink-500 mb-4">02. Mi Portafolio</p>
+        <h2 id="portfolio-heading" className="text-4xl md:text-6xl font-extrabold text-slate-900">
           Marcas que confiaron <span className="text-gradient">en mi visión.</span>
-        </h3>
+        </h2>
         <p className="text-slate-500 mt-6 text-lg max-w-xl mx-auto">
           Contenido real que ha generado millones de vistas y conexiones auténticas con audiencias.
         </p>
@@ -48,8 +48,13 @@ const PortfolioSection = () => (
                 loop
                 muted
                 playsInline
+                preload="metadata"
+                poster={item.image}
+                aria-label={`Video de contenido UGC para ${item.client}`}
                 className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-in-out"
-              />
+              >
+                <track kind="captions" srcLang="es" label="Español" />
+              </video>
             ) : (
               <img
                 src={item.image}
@@ -78,7 +83,7 @@ const PortfolioSection = () => (
 
             <div className="absolute bottom-0 left-0 w-full p-8 z-20 translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
               <p className="text-white/70 text-xs font-bold uppercase tracking-wider mb-1">{item.category}</p>
-              <h4 className="text-white text-2xl font-extrabold mb-2 leading-tight">{item.client}</h4>
+              <h3 className="text-white text-2xl font-extrabold mb-2 leading-tight">{item.client}</h3>
               <div className="flex items-center gap-2">
                 <div className="inline-block bg-white/20 backdrop-blur-sm px-3 py-1 rounded-full text-white text-xs font-bold">
                   {item.views}

@@ -33,10 +33,10 @@ const AboutSection = () => (
         </motion.div>
 
         <motion.div variants={fadeUp}>
-          <h2 id="about-heading" className="text-sm font-bold uppercase tracking-widest text-orange-500 mb-4">01. Sobre Mí</h2>
-          <h3 className="text-4xl md:text-5xl font-extrabold text-slate-900 mb-6 leading-tight">
+          <p className="text-sm font-bold uppercase tracking-widest text-orange-500 mb-4">01. Sobre Mí</p>
+          <h2 id="about-heading" className="text-4xl md:text-5xl font-extrabold text-slate-900 mb-6 leading-tight">
             Mucho más que <br /><span className="text-gradient">solo videos bonitos.</span>
-          </h3>
+          </h2>
           <p className="text-lg text-slate-600 mb-4 leading-relaxed">
             {CREATOR.bio}
           </p>

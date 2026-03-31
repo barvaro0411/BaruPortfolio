@@ -18,7 +18,8 @@ const Navbar = ({ scrollTo }) => {
   const menuRef = useRef(null);
   const buttonRef = useRef(null);
 
-  const handleNavClick = (id) => {
+  const handleNavClick = (e, id) => {
+    e.preventDefault();
     setIsOpen(false);
     scrollTo(id);
   };
@@ -64,36 +65,36 @@ const Navbar = ({ scrollTo }) => {
         role="navigation"
         aria-label="Navegación principal"
       >
-        <div
-          className="font-bold text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-pink-500 tracking-wider cursor-pointer"
-          onClick={() => handleNavClick('portada')}
-          role="button"
-          tabIndex={0}
-          onKeyDown={(e) => e.key === 'Enter' && handleNavClick('portada')}
+        <a
+          href="#portada"
+          onClick={(e) => handleNavClick(e, 'portada')}
+          className="font-bold text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-pink-500 tracking-wider"
           aria-label="Ir al inicio"
         >
           {CREATOR.alias}.
-        </div>
+        </a>
 
         {/* Desktop Menu */}
         <div className="hidden md:flex gap-6 text-sm font-medium text-slate-600">
           {NAV_ITEMS.map((item) => (
-            <button
+            <a
               key={item.id}
-              onClick={() => handleNavClick(item.id)}
+              href={`#${item.id}`}
+              onClick={(e) => handleNavClick(e, item.id)}
               className="hover:text-pink-500 transition-colors"
             >
               {item.label}
-            </button>
+            </a>
           ))}
         </div>
 
-        <button
-          onClick={() => handleNavClick('contacto')}
+        <a
+          href="#contacto"
+          onClick={(e) => handleNavClick(e, 'contacto')}
           className="hidden md:block bg-gradient-brand text-white px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider hover:shadow-lg hover:shadow-pink-500/30 transition-all hover:-translate-y-0.5"
         >
           Contactar
-        </button>
+        </a>
 
         {/* Mobile Hamburger */}
         <button
@@ -121,22 +122,24 @@ const Navbar = ({ scrollTo }) => {
             className="fixed top-24 left-[5%] w-[90%] z-40 bg-white/95 backdrop-blur-xl rounded-3xl shadow-2xl border border-pink-100 p-6 flex flex-col gap-4 md:hidden"
           >
             {NAV_ITEMS.map((item) => (
-              <button
+              <a
                 key={item.id}
+                href={`#${item.id}`}
                 role="menuitem"
-                onClick={() => handleNavClick(item.id)}
-                className="text-left font-semibold text-slate-700 hover:text-pink-500 text-lg py-2 border-b border-pink-50"
+                onClick={(e) => handleNavClick(e, item.id)}
+                className="text-left font-semibold text-slate-700 hover:text-pink-500 text-lg py-2 border-b border-pink-50 block"
               >
                 {item.label}
-              </button>
+              </a>
             ))}
-            <button
+            <a
+              href="#contacto"
               role="menuitem"
-              onClick={() => handleNavClick('contacto')}
-              className="mt-4 bg-gradient-brand text-white px-6 py-3 rounded-full text-sm font-bold uppercase tracking-wider text-center shadow-lg shadow-pink-500/30"
+              onClick={(e) => handleNavClick(e, 'contacto')}
+              className="mt-4 bg-gradient-brand text-white px-6 py-3 rounded-full text-sm font-bold uppercase tracking-wider text-center shadow-lg shadow-pink-500/30 block"
             >
               Contactar
-            </button>
+            </a>
           </motion.div>
         )}
       </AnimatePresence>
