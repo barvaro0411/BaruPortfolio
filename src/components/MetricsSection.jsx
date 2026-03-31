@@ -91,8 +91,8 @@ const MetricsSection = () => (
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {TOP_VIDEOS.map((v, i) => (
               <div key={i} className="bg-white rounded-2xl p-6 border border-slate-100 flex items-center gap-4 hover:border-pink-200 hover:shadow-md transition-all">
-                <div className="w-12 h-12 bg-gradient-brand rounded-2xl flex items-center justify-center flex-shrink-0" aria-hidden="true">
-                  <span className="text-white font-extrabold text-lg">{v.views}</span>
+                <div className="h-12 min-w-[3.5rem] px-3 bg-gradient-brand rounded-xl flex items-center justify-center flex-shrink-0" aria-hidden="true">
+                  <span className="text-white font-extrabold text-sm md:text-base whitespace-nowrap tracking-tight">{v.views}</span>
                 </div>
                 <div>
                   <p className="font-bold text-slate-900 text-sm">{v.label}</p>

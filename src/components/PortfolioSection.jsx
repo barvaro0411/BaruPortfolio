@@ -102,21 +102,37 @@ const PortfolioSection = () => (
         whileInView="visible"
         viewport={{ once: true }}
         variants={staggerContainer}
-        className="text-center"
+        className="text-center w-full"
       >
-        <p className="text-sm font-bold text-slate-400 uppercase tracking-widest mb-6">Colaboraciones Reales</p>
-        <div className="flex flex-wrap justify-center gap-4">
-          {BRANDS.map((b, i) => (
-            <motion.div
-              key={i}
-              variants={fadeUp}
-              className="bg-slate-50 border border-slate-100 rounded-2xl px-6 py-4 flex flex-col items-center hover:border-pink-200 hover:shadow-sm transition-all"
-            >
-              <span className="font-bold text-slate-800 text-sm">{b.name}</span>
-              <span className="text-orange-400 text-xs font-medium mt-1">{b.tag}</span>
-              <span className="text-slate-400 text-xs mt-0.5">{b.type}</span>
-            </motion.div>
-          ))}
+        <p className="text-sm font-bold text-slate-400 uppercase tracking-widest mb-2">Colaboraciones Reales</p>
+        <h3 className="text-3xl font-extrabold text-slate-900 mb-10">As Seen On</h3>
+        
+        {/* Fullwidth Marquee Container */}
+        <div className="relative w-screen left-1/2 -ml-[50vw] overflow-hidden bg-slate-50/50 py-10 border-y border-slate-100">
+          {/* Edges Gradients for Smoothness */}
+          <div className="absolute top-0 left-0 w-16 md:w-48 h-full bg-gradient-to-r from-white via-white/80 to-transparent z-10 pointer-events-none" aria-hidden="true" />
+          <div className="absolute top-0 right-0 w-16 md:w-48 h-full bg-gradient-to-l from-white via-white/80 to-transparent z-10 pointer-events-none" aria-hidden="true" />
+          
+          <div className="animate-marquee gap-6 md:gap-8 items-center">
+            {/* Seamless Double Group Loop */}
+            {[...Array(2)].map((_, groupIndex) => (
+              <div key={groupIndex} className="flex gap-6 md:gap-8 items-center flex-shrink-0 pr-6 md:pr-8">
+                {/* 4 sets of BRANDS to guarantee it overflows desktop screens safely */}
+                {[...Array(4)].fill(BRANDS).flat().map((b, i) => (
+                  <div
+                    key={`${groupIndex}-${i}`}
+                    className="bg-white border border-slate-200/60 shadow-sm rounded-3xl px-8 py-6 md:py-8 flex flex-col items-center justify-center min-w-[220px] md:min-w-[280px] hover:border-pink-300 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group select-none"
+                  >
+                    <span className="font-extrabold text-slate-800 text-lg md:text-xl group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-orange-500 group-hover:to-pink-500 transition-all text-center leading-tight">
+                      {b.name}
+                    </span>
+                    <span className="bg-orange-50 text-orange-600 font-bold text-[10px] md:text-xs mt-3 px-3 py-1 rounded-full uppercase tracking-wider">{b.tag}</span>
+                    <span className="text-slate-500 text-xs md:text-sm mt-2 font-medium">{b.type}</span>
+                  </div>
+                ))}
+              </div>
+            ))}
+          </div>
         </div>
       </motion.div>
     </div>
