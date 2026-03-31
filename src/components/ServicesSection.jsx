@@ -89,6 +89,7 @@ const ServicesSection = ({ scrollTo }) => (
                       href="#contacto"
                       onClick={(e) => { e.preventDefault(); scrollTo('contacto'); }}
                       className="bg-pink-50 text-pink-600 px-6 py-2 rounded-full font-bold uppercase tracking-wider text-sm hover:bg-pink-100 transition-colors"
+                      aria-label={`Solicitar paquete ${pkg.name}`}
                     >
                       Solicitar
                     </a>
@@ -97,6 +98,7 @@ const ServicesSection = ({ scrollTo }) => (
                       href="#contacto"
                       onClick={(e) => { e.preventDefault(); scrollTo('contacto'); }}
                       className="text-orange-500 font-bold uppercase tracking-wider text-sm hover:text-orange-600 flex items-center gap-1"
+                      aria-label={`Solicitar paquete ${pkg.name}`}
                     >
                       Lo quiero <ArrowUpRight className="w-4 h-4" aria-hidden="true" />
                     </a>
